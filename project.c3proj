@@ -158,7 +158,8 @@
 			"MobileAdvert",
 			"LocalStorage",
 			"Browser",
-			"Audio"
+			"Audio",
+			"SpriteLvl"
 		],
 		"subfolders": [
 			{

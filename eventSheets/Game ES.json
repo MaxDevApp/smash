@@ -69,11 +69,24 @@
 					}
 				},
 				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 404057352637462,
+					"parameters": {
+						"object-to-create": "SpriteLvl",
+						"layer": "\"UI\"",
+						"x": "268",
+						"y": "64",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
 					"id": "set-text",
 					"objectClass": "LevelText",
-					"sid": 625333672186884,
+					"sid": 453936667017444,
 					"parameters": {
-						"text": "\"\" & Level"
+						"text": "Level"
 					}
 				},
 				{
@@ -4845,7 +4858,21 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "LevelText",
+							"sid": 429690327434379,
+							"parameters": {
+								"text": "\"0:0\"&Timer"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "SpriteLvl",
+							"sid": 321525166074316
+						}
+					],
 					"sid": 477244423380876,
 					"children": [
 						{
@@ -4885,6 +4912,19 @@
 											"parameters": {
 												"variable": "Timer",
 												"value": "1"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 187502447179878,
+											"parameters": {
+												"object-to-create": "TimesUpText",
+												"layer": "\"UI\"",
+												"x": "270",
+												"y": "60",
+												"create-hierarchy": false,
+												"template-name": "\"\""
 											}
 										}
 									],
