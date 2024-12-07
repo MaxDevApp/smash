@@ -71,9 +71,9 @@
 				{
 					"id": "set-text",
 					"objectClass": "LevelText",
-					"sid": 678019761179902,
+					"sid": 625333672186884,
 					"parameters": {
-						"text": "\"Level \" & Level"
+						"text": "\"\" & Level"
 					}
 				},
 				{
