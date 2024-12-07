@@ -1,0 +1,28 @@
+{
+	"name": "LoadingText",
+	"plugin-id": "Spritefont2",
+	"sid": 243503326614822,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 366672251277316
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 512,
+		"height": 128,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 6085375,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

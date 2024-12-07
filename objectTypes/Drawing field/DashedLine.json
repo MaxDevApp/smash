@@ -1,0 +1,22 @@
+{
+	"name": "DashedLine",
+	"plugin-id": "TiledBg",
+	"sid": 756045020793113,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 38,
+		"height": 14,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 5611335,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

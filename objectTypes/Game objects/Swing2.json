@@ -1,0 +1,65 @@
+{
+	"name": "Swing2",
+	"plugin-id": "Sprite",
+	"sid": 532430305038625,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 294664219282381
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 220,
+						"height": 502,
+						"originX": 0.5,
+						"originY": 0.06573705179282868,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 6860149,
+						"collisionPoly": {
+							"points": [
+								0.37272727272727274,
+								0,
+								0.6272727272727273,
+								0,
+								0.6272727272727294,
+								0.6693227025142225,
+								1,
+								0.8725099468611147,
+								1,
+								1,
+								0,
+								1,
+								0,
+								0.8725099601593622,
+								0.3727272727272721,
+								0.6693227091633462
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 301752057825167,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

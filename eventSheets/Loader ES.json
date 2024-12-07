@@ -1,0 +1,786 @@
+{
+	"name": "Loader ES",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "AllLevelsCount",
+			"type": "number",
+			"initialValue": "70",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 484703150575956
+		},
+		{
+			"eventType": "variable",
+			"name": "IsAllDataLoaded",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 301218800936452
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 130299287155340
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "Fader",
+					"sid": 876479931694476,
+					"parameters": {
+						"opacity": "0"
+					}
+				}
+			],
+			"sid": 797204573585543
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 762544576841502
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "LoadingText",
+					"sid": 706675200870235,
+					"parameters": {
+						"text": "\"\" & int(loadingprogress * 100) & \"%\""
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Paper",
+					"sid": 846417878200098,
+					"parameters": {
+						"width": "ViewportWidth(\"Background\")",
+						"height": "ViewportHeight(\"Background\")"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Fader",
+					"sid": 589214927486679,
+					"parameters": {
+						"width": "ViewportWidth(\"Fader\")",
+						"height": "ViewportHeight(\"Fader\")"
+					}
+				}
+			],
+			"sid": 972350214806989
+		},
+		{
+			"eventType": "comment",
+			"text": "Load the first item from Local Storage.",
+			"text-color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"background-color": [
+				0.30980392156862746,
+				0.592156862745098,
+				0.8117647058823529,
+				1
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-loader-layout-complete",
+					"objectClass": "System",
+					"sid": 238574118779938
+				}
+			],
+			"actions": [
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 702878664033420,
+					"parameters": {
+						"key": "\"Level_DrawToSmash\""
+					}
+				}
+			],
+			"sid": 464824372542165
+		},
+		{
+			"eventType": "comment",
+			"text": "Level",
+			"text-color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"background-color": [
+				0.30980392156862746,
+				0.592156862745098,
+				0.8117647058823529,
+				1
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 763580620760737,
+					"parameters": {
+						"key": "\"Level_DrawToSmash\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 839109285362123,
+					"parameters": {
+						"key": "\"Level_DrawToSmash\"",
+						"value": "1"
+					}
+				},
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 335303612410509,
+					"parameters": {
+						"key": "\"Level_DrawToSmash\""
+					}
+				}
+			],
+			"sid": 367203048731224
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 334347631870745,
+					"parameters": {
+						"key": "\"Level_DrawToSmash\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 718779088927187,
+					"parameters": {
+						"key": "\"Level_DrawToSmash\""
+					}
+				}
+			],
+			"sid": 152608677932345
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 470168989060496,
+					"parameters": {
+						"key": "\"Level_DrawToSmash\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 200580857904600,
+					"parameters": {
+						"variable": "Level",
+						"value": "LocalStorage.ItemValue"
+					}
+				},
+				{
+					"type": "comment",
+					"text": "Check another item.",
+					"text-color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"background-color": [
+						0.6,
+						0.8117647058823529,
+						0.3137254901960784,
+						1
+					]
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 110912515034935,
+					"parameters": {
+						"key": "\"Hints_DrawToSmash\""
+					}
+				}
+			],
+			"sid": 881354797228806
+		},
+		{
+			"eventType": "comment",
+			"text": "Level",
+			"text-color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"background-color": [
+				0.30980392156862746,
+				0.592156862745098,
+				0.8117647058823529,
+				1
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 300707458338141,
+					"parameters": {
+						"key": "\"Hints_DrawToSmash\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 491638782887469,
+					"parameters": {
+						"key": "\"Hints_DrawToSmash\"",
+						"value": "5"
+					}
+				},
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 669882097170052,
+					"parameters": {
+						"key": "\"Hints_DrawToSmash\""
+					}
+				}
+			],
+			"sid": 758772182861117
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 793603549028390,
+					"parameters": {
+						"key": "\"Hints_DrawToSmash\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 315024237180966,
+					"parameters": {
+						"key": "\"Hints_DrawToSmash\""
+					}
+				}
+			],
+			"sid": 879415361915409
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 123457344512922,
+					"parameters": {
+						"key": "\"Hints_DrawToSmash\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 629968887889482,
+					"parameters": {
+						"variable": "Hints",
+						"value": "LocalStorage.ItemValue"
+					}
+				},
+				{
+					"type": "comment",
+					"text": "Check another item.",
+					"text-color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"background-color": [
+						0.6,
+						0.8117647058823529,
+						0.3137254901960784,
+						1
+					]
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 605635597718594,
+					"parameters": {
+						"key": "\"Sound_DrawToSmash\""
+					}
+				}
+			],
+			"sid": 170664204854210
+		},
+		{
+			"eventType": "comment",
+			"text": "Sound",
+			"text-color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"background-color": [
+				0.30980392156862746,
+				0.592156862745098,
+				0.8117647058823529,
+				1
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 135129204114366,
+					"parameters": {
+						"key": "\"Sound_DrawToSmash\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 444700429590985,
+					"parameters": {
+						"key": "\"Sound_DrawToSmash\"",
+						"value": "1"
+					}
+				},
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 760553199909990,
+					"parameters": {
+						"key": "\"Sound_DrawToSmash\""
+					}
+				}
+			],
+			"sid": 512501983450824
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 779863490894378,
+					"parameters": {
+						"key": "\"Sound_DrawToSmash\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 196058823203967,
+					"parameters": {
+						"key": "\"Sound_DrawToSmash\""
+					}
+				}
+			],
+			"sid": 504507390851650
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 684302745261583,
+					"parameters": {
+						"key": "\"Sound_DrawToSmash\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 375118115816660,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "LocalStorage",
+							"sid": 108490610134508,
+							"parameters": {
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 403585574296578,
+							"parameters": {
+								"variable": "isSoundActive",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 197435491672647
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "LocalStorage",
+							"sid": 175320507690283,
+							"parameters": {
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 292845110261922,
+							"parameters": {
+								"variable": "isSoundActive",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 212004818056129
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 983278442923930
+						},
+						{
+							"type": "comment",
+							"text": "Check another item.",
+							"text-color": [
+								1,
+								1,
+								1,
+								1
+							],
+							"background-color": [
+								0.6,
+								0.8117647058823529,
+								0.3137254901960784,
+								1
+							]
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 629605677930463,
+							"parameters": {
+								"key": "\"Music_DrawToSmash\""
+							}
+						}
+					],
+					"sid": 653600885125314
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Music",
+			"text-color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"background-color": [
+				0.30980392156862746,
+				0.592156862745098,
+				0.8117647058823529,
+				1
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 323598620285293,
+					"parameters": {
+						"key": "\"Music_DrawToSmash\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 325926529236461,
+					"parameters": {
+						"key": "\"Music_DrawToSmash\"",
+						"value": "1"
+					}
+				},
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 420073849521115,
+					"parameters": {
+						"key": "\"Music_DrawToSmash\""
+					}
+				}
+			],
+			"sid": 223243743162780
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 188284532654645,
+					"parameters": {
+						"key": "\"Music_DrawToSmash\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 285352953890061,
+					"parameters": {
+						"key": "\"Music_DrawToSmash\""
+					}
+				}
+			],
+			"sid": 585866369514912
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 356877027992386,
+					"parameters": {
+						"key": "\"Music_DrawToSmash\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 319263225049501,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "LocalStorage",
+							"sid": 389658596620016,
+							"parameters": {
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 617007513309259,
+							"parameters": {
+								"variable": "isMusicActive",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 523233390132557
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "LocalStorage",
+							"sid": 782614070438253,
+							"parameters": {
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 832048375726329,
+							"parameters": {
+								"variable": "isMusicActive",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 602596194044665
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 108679753850378
+						},
+						{
+							"type": "comment",
+							"text": "Start the game.",
+							"text-color": [
+								1,
+								1,
+								1,
+								1
+							],
+							"background-color": [
+								0.6,
+								0.8117647058823529,
+								0.3137254901960784,
+								1
+							]
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 532123765404967,
+							"parameters": {
+								"variable": "IsAllDataLoaded",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 766961119229100,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "We go to a level if its value does not exceed the total number of levels."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 708230273447613,
+									"parameters": {
+										"variable": "Level",
+										"comparison": 3,
+										"value": "AllLevelsCount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 353698222943437,
+									"parameters": {
+										"layout": "\"Lvl-\" & Level"
+									}
+								}
+							],
+							"sid": 826922659968308
+						},
+						{
+							"eventType": "comment",
+							"text": "Otherwise, we go to the random level."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 599867552055190,
+									"parameters": {
+										"variable": "Level",
+										"comparison": 4,
+										"value": "AllLevelsCount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 884982204355926,
+									"parameters": {
+										"layout": "\"Lvl-\" & int(random(2, AllLevelsCount))"
+									}
+								}
+							],
+							"sid": 513874100530781
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 647586007946385
+}

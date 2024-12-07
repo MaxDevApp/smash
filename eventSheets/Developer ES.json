@@ -1,0 +1,156 @@
+{
+	"name": "Developer ES",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "Clear all local storage data and reload the game."
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 154930251162823,
+					"parameters": {
+						"key": 82
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "clear-storage",
+					"objectClass": "LocalStorage",
+					"sid": 725406786750907
+				},
+				{
+					"id": "reload",
+					"objectClass": "Browser",
+					"sid": 925330640804128
+				}
+			],
+			"sid": 856294686201904,
+			"disabled": true
+		},
+		{
+			"eventType": "comment",
+			"text": "Switch levels."
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 845187556833235,
+					"parameters": {
+						"key": 87
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 895456644020839,
+					"parameters": {
+						"variable": "Level",
+						"value": "1"
+					}
+				},
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 286145522677528,
+					"parameters": {
+						"layout": "\"Lvl-\" & Level"
+					}
+				}
+			],
+			"sid": 188135582404497,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 266626997157799,
+					"parameters": {
+						"key": 83
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-eventvar",
+					"objectClass": "System",
+					"sid": 873501538899519,
+					"parameters": {
+						"variable": "Level",
+						"value": "1"
+					}
+				},
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 115500537766323,
+					"parameters": {
+						"layout": "\"Lvl-\" & Level"
+					}
+				}
+			],
+			"sid": 965648542654750,
+			"disabled": true
+		},
+		{
+			"eventType": "comment",
+			"text": "Show hints."
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 847060111244446,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 323902510753807,
+					"parameters": {
+						"variable": "isHintVisible",
+						"value": "true"
+					}
+				},
+				{
+					"id": "tween-value",
+					"objectClass": "BtnHints",
+					"sid": 482987201124529,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"show hint\"",
+						"start-value": "0",
+						"end-value": "0",
+						"time": "0.1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 641074801177887,
+			"disabled": true
+		}
+	],
+	"sid": 323389431220738
+}

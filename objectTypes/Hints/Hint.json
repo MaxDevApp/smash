@@ -1,0 +1,28 @@
+{
+	"name": "Hint",
+	"plugin-id": "NinePatch",
+	"sid": 318364768625391,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 580260139657014
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 20,
+		"height": 10,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 6535655,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

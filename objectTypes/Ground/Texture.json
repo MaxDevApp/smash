@@ -1,0 +1,27 @@
+{
+	"name": "Texture",
+	"plugin-id": "TiledBg",
+	"sid": 491906069341280,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "skymen_BetterOutline",
+			"name": "BetterOutline"
+		}
+	],
+	"image": {
+		"width": 496,
+		"height": 496,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 1128126,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

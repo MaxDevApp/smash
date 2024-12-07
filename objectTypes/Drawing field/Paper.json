@@ -1,0 +1,22 @@
+{
+	"name": "Paper",
+	"plugin-id": "TiledBg",
+	"sid": 215639689750552,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 33,
+		"height": 34,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 9949445,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

@@ -1,0 +1,28 @@
+{
+	"name": "Swing1",
+	"plugin-id": "NinePatch",
+	"sid": 124070170515142,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 545702277306327
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 68,
+		"height": 68,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"fileType": "image/png",
+		"imageSpriteId": 3052590,
+		"useCollisionPoly": true,
+		"tag": ""
+	}
+}

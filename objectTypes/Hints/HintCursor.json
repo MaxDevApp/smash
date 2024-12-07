@@ -1,0 +1,55 @@
+{
+	"name": "HintCursor",
+	"plugin-id": "Sprite",
+	"sid": 927083938184470,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 267962866356063
+		},
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 108553932620928
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 182412143285318
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 228,
+						"height": 282,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 918227,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 922417226274649,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

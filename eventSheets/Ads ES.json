@@ -1,0 +1,438 @@
+{
+	"name": "Ads ES",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "Pay attention!\nPlease look at the documentation you downloaded with the project.\nThere are detailed instructions to help you set up your ads.",
+			"background-color": [
+				0.7450980392156863,
+				0.9921568627450981,
+				0.7254901960784313,
+				1
+			]
+		},
+		{
+			"eventType": "variable",
+			"name": "LevelsCounter",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 769636061928021
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 408813955337098
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "Interstitial Ad."
+				},
+				{
+					"id": "create-interstitial",
+					"objectClass": "MobileAdvert",
+					"sid": 563403805269972,
+					"parameters": {
+						"advert-id": "\"ca-app-pub-YourPubHere/AdNumberHere\"",
+						"show": "false"
+					}
+				},
+				{
+					"type": "comment",
+					"text": "Rewarded Ad."
+				},
+				{
+					"id": "create-rewarded",
+					"objectClass": "MobileAdvert",
+					"sid": 710022092488345,
+					"parameters": {
+						"advert-id": "\"ca-app-pub-YourPubHere/AdNumberHere\"",
+						"show": "false"
+					}
+				},
+				{
+					"type": "comment",
+					"text": "At the start of the level, we increase the value of the \"LevelsCounter\" variable by 1. So we'll be able to show ads for every 5th level."
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 350516173514103,
+					"parameters": {
+						"variable": "LevelsCounter",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 315784366134038,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Show interstitial Ad."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 245660907229537,
+							"parameters": {
+								"first-value": "LevelsCounter % 5",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 176619798148486,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-loaded-interstitial",
+									"objectClass": "MobileAdvert",
+									"sid": 982411845361069
+								}
+							],
+							"actions": [
+								{
+									"id": "show-interstitial",
+									"objectClass": "MobileAdvert",
+									"sid": 521735443353247
+								}
+							],
+							"sid": 482132942737327
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "There are several types of rewarded ads in the game that we show:\n  1) to skip a level\n  2) to get an additional hint\n\nWe also show interstitial ads for every 5th level."
+		},
+		{
+			"eventType": "comment",
+			"text": "Rewarded video advert. We show this ad when a player wants more hints and clicks the \"BtnMoreHints\" button."
+		},
+		{
+			"functionName": "Show rewarded Ad",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 630864586815615,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-loaded-rewarded",
+							"objectClass": "MobileAdvert",
+							"sid": 188834696997867
+						}
+					],
+					"actions": [
+						{
+							"id": "show-rewarded",
+							"objectClass": "MobileAdvert",
+							"sid": 507708704089619
+						}
+					],
+					"sid": 575493688660133
+				}
+			]
+		},
+		{
+			"eventType": "variable",
+			"name": "ActionType",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 316297397386381
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-rewarded-complete",
+					"objectClass": "MobileAdvert",
+					"sid": 211680853976111
+				}
+			],
+			"actions": [],
+			"sid": 338338989173958,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 170346076509201,
+							"parameters": {
+								"variable": "ActionType",
+								"comparison": 0,
+								"value": "\"add more hints\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 244060797977559,
+							"parameters": {
+								"variable": "Hints",
+								"value": "5"
+							}
+						}
+					],
+					"sid": 783370721235914,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Save data."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 169978224527697,
+									"parameters": {
+										"variable": "IsAllDataLoaded"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 686138949451305,
+									"parameters": {
+										"key": "\"Hints_DrawToSmash\"",
+										"value": "Hints"
+									}
+								}
+							],
+							"sid": 944478967071825
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 577863496677739,
+							"parameters": {
+								"variable": "ActionType",
+								"comparison": 0,
+								"value": "\"skip the level\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 649104463867240,
+							"parameters": {
+								"variable": "isTimerActive",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 676268705073817,
+							"parameters": {
+								"variable": "isGameActive",
+								"value": "false"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 230945094653544,
+							"parameters": {
+								"variable": "Level",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 728979863198038,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Save data."
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 402893769546364,
+									"parameters": {
+										"variable": "IsAllDataLoaded"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 555126074580257,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Only if we haven't exceeded the total number of levels."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 348172135872535,
+											"parameters": {
+												"variable": "Level",
+												"comparison": 0,
+												"value": "AllLevelsCount+1"
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 792501314137401,
+											"parameters": {
+												"variable": "Level",
+												"comparison": 3,
+												"value": "AllLevelsCount"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-item",
+											"objectClass": "LocalStorage",
+											"sid": 959101009634685,
+											"parameters": {
+												"key": "\"Level_DrawToSmash\"",
+												"value": "Level"
+											}
+										}
+									],
+									"sid": 855449536504455,
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 737358881153019
+								},
+								{
+									"callFunction": "Win animation",
+									"sid": 524806921146016
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "MouthGood",
+									"sid": 328410861532101,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Egg2",
+									"sid": 892161757134370,
+									"behaviorType": "Physics",
+									"parameters": {
+										"mode": "enabled"
+									}
+								}
+							],
+							"sid": 193749302132954
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Create another ad."
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 217784903207874
+						},
+						{
+							"id": "create-rewarded",
+							"objectClass": "MobileAdvert",
+							"sid": 196445055715516,
+							"parameters": {
+								"advert-id": "\"ca-app-pub-YourPubHere/AdNumberHere\"",
+								"show": "false"
+							}
+						}
+					],
+					"sid": 531044688925617
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "If the rewarded ad was canceled, we create it again."
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-rewarded-cancelled",
+					"objectClass": "MobileAdvert",
+					"sid": 173985378042143
+				}
+			],
+			"actions": [
+				{
+					"id": "create-rewarded",
+					"objectClass": "MobileAdvert",
+					"sid": 153474854498374,
+					"parameters": {
+						"advert-id": "\"ca-app-pub-YourPubHere/AdNumberHere\"",
+						"show": "false"
+					}
+				}
+			],
+			"sid": 293118530987889
+		}
+	],
+	"sid": 397437890623816
+}

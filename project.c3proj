@@ -1,0 +1,723 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 41600,
+	"name": "Draw To Smash",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": true,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "DrawingCanvas",
+			"name": "Drawing canvas",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Spritefont2",
+			"name": "Sprite font",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "advert",
+			"name": "Mobile advert",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "MoveTo",
+			"name": "Move To",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Physics",
+			"name": "Physics",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pin",
+			"name": "Pin",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Rotate",
+			"name": "Rotate",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "skymen_BetterOutline",
+			"name": "Better Outline",
+			"author": "skymen",
+			"bundled": true,
+			"version": "2.0.0.3"
+		}
+	],
+	"uniqueId": "f97d98itbl3",
+	"objectTypes": {
+		"items": [
+			"Touch",
+			"Keyboard",
+			"Background",
+			"Fader",
+			"MobileAdvert",
+			"LocalStorage",
+			"Browser",
+			"Audio"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"BtnSettings",
+					"BtnRestart",
+					"BtnHints",
+					"BtnSkip",
+					"BtnMusic",
+					"BtnSound",
+					"AdPicture",
+					"HintsCounter",
+					"LevelText",
+					"LevelTextPanel"
+				],
+				"subfolders": [],
+				"name": "UI"
+			},
+			{
+				"items": [
+					"BtnNext",
+					"WinEmoji",
+					"WinText"
+				],
+				"subfolders": [],
+				"name": "Win"
+			},
+			{
+				"items": [
+					"FailEmoji",
+					"FailText",
+					"TimesUpText"
+				],
+				"subfolders": [],
+				"name": "Fail"
+			},
+			{
+				"items": [
+					"DashedLine",
+					"Paper"
+				],
+				"subfolders": [],
+				"name": "Drawing field"
+			},
+			{
+				"items": [
+					"Ball_2",
+					"Ball_1",
+					"Line",
+					"Link",
+					"PhysicalArea",
+					"TouchTrigger"
+				],
+				"subfolders": [],
+				"name": "Balls chain"
+			},
+			{
+				"items": [
+					"Egg",
+					"EyebrowsBad",
+					"eyes",
+					"eyes2",
+					"EyesLine",
+					"MouthBad",
+					"EyelidsBad"
+				],
+				"subfolders": [],
+				"name": "Egg 1"
+			},
+			{
+				"items": [
+					"Ground",
+					"Eraser",
+					"Texture",
+					"DrawingCanvas"
+				],
+				"subfolders": [],
+				"name": "Ground"
+			},
+			{
+				"items": [
+					"Egg2",
+					"EyelidsGood",
+					"MouthGood",
+					"EyebrowsGood",
+					"SpeechBubble"
+				],
+				"subfolders": [],
+				"name": "Egg 2"
+			},
+			{
+				"items": [
+					"Hint",
+					"Pencil",
+					"HintPathLine",
+					"HintCursor"
+				],
+				"subfolders": [],
+				"name": "Hints"
+			},
+			{
+				"items": [
+					"EggExplosionSprite",
+					"EggSilhouette",
+					"P1_Image",
+					"P2_Image",
+					"Particles1",
+					"Particles2",
+					"Particles3"
+				],
+				"subfolders": [],
+				"name": "Egg explosion"
+			},
+			{
+				"items": [
+					"Confetti",
+					"ConfettiParticles"
+				],
+				"subfolders": [],
+				"name": "Confetti"
+			},
+			{
+				"items": [
+					"Swing1",
+					"Swing2",
+					"SwingPoint",
+					"Rope",
+					"RopeBase",
+					"Stick",
+					"Wheel"
+				],
+				"subfolders": [],
+				"name": "Game objects"
+			},
+			{
+				"items": [
+					"LoadingText",
+					"Logo"
+				],
+				"subfolders": [],
+				"name": "Loader"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [
+			"Family1"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Loader",
+			"Object Bank",
+			"Lvl-"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Lvl-1",
+					"Lvl-2",
+					"Lvl-3",
+					"Lvl-4",
+					"Lvl-5",
+					"Lvl-6",
+					"Lvl-7",
+					"Lvl-8",
+					"Lvl-9",
+					"Lvl-10"
+				],
+				"subfolders": [],
+				"name": "1-10"
+			},
+			{
+				"items": [
+					"Lvl-11",
+					"Lvl-12",
+					"Lvl-13",
+					"Lvl-14",
+					"Lvl-15",
+					"Lvl-16",
+					"Lvl-17",
+					"Lvl-18",
+					"Lvl-19",
+					"Lvl-20"
+				],
+				"subfolders": [],
+				"name": "11-20"
+			},
+			{
+				"items": [
+					"Lvl-21",
+					"Lvl-22",
+					"Lvl-23",
+					"Lvl-24",
+					"Lvl-25",
+					"Lvl-26",
+					"Lvl-27",
+					"Lvl-28",
+					"Lvl-29",
+					"Lvl-30"
+				],
+				"subfolders": [],
+				"name": "21-30"
+			},
+			{
+				"items": [
+					"Lvl-31",
+					"Lvl-32",
+					"Lvl-33",
+					"Lvl-34",
+					"Lvl-35",
+					"Lvl-36",
+					"Lvl-37",
+					"Lvl-38",
+					"Lvl-39",
+					"Lvl-40"
+				],
+				"subfolders": [],
+				"name": "31-40"
+			},
+			{
+				"items": [
+					"Lvl-41",
+					"Lvl-42",
+					"Lvl-43",
+					"Lvl-44",
+					"Lvl-45",
+					"Lvl-46",
+					"Lvl-47",
+					"Lvl-48",
+					"Lvl-49",
+					"Lvl-50"
+				],
+				"subfolders": [],
+				"name": "41-50"
+			},
+			{
+				"items": [
+					"Lvl-51",
+					"Lvl-52",
+					"Lvl-53",
+					"Lvl-54",
+					"Lvl-55",
+					"Lvl-56",
+					"Lvl-57",
+					"Lvl-58",
+					"Lvl-59",
+					"Lvl-60"
+				],
+				"subfolders": [],
+				"name": "51-60"
+			},
+			{
+				"items": [
+					"Lvl-61",
+					"Lvl-62",
+					"Lvl-63",
+					"Lvl-64",
+					"Lvl-65",
+					"Lvl-66",
+					"Lvl-67",
+					"Lvl-68",
+					"Lvl-69",
+					"Lvl-70"
+				],
+				"subfolders": [],
+				"name": "60-70"
+			}
+		]
+	},
+	"eventSheets": {
+		"items": [
+			"Game ES",
+			"Ads ES",
+			"Loader ES",
+			"Developer ES"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [
+				{
+					"name": "DM-CGS-31.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 242849023910291,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "tada-fanfare-a.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 154457185249963,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "negative beeps.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 262866601815168,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "click.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 184464331498773,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "pop.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 407839324284995,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "egg-cracking.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 650976929138809,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "punch-1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 348997807281385,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "punch-2.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 618314070481910,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "punch-3.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 539187404627007,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "punch-4.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 197550507433508,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "punch-5.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 698759646632685,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "punch-6.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 599642147084994,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "punch-7.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 733863084472301,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "punch-8.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 510445064660767,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"music": {
+			"items": [
+				{
+					"name": "scheming weasel.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 438309729232842,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 662421566526017,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 422754770075962,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 956986548699415,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 119724372076441,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 383438961564417,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 965647985979483,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 871238477161785,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [
+			"Timeline 1"
+		],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"flowcharts": {
+		"items": [],
+		"subfolders": []
+	},
+	"properties": {
+		"description": "",
+		"version": "1.0.0.0",
+		"author": "Svixel",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": false,
+		"zAxisScale": "normalized",
+		"fov": 0.7853981633974483,
+		"useLoaderLayout": true,
+		"fullscreenMode": "scale-outer",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "portrait",
+		"webgpu": "auto",
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "auto",
+		"zNear": 1,
+		"zFar": 10000,
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "progress-logo",
+		"preloadSounds": true,
+		"cordovaiOSScheme": "app",
+		"cordovaAndroidScheme": "https",
+		"exportFileStructure": "folders",
+		"uidAllocationMode": "increment"
+	},
+	"viewportWidth": 720,
+	"viewportHeight": 1280,
+	"firstLayout": "Loader"
+}

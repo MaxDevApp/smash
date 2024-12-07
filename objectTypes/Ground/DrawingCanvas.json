@@ -1,0 +1,20 @@
+{
+	"name": "DrawingCanvas",
+	"plugin-id": "DrawingCanvas",
+	"sid": 490312294563888,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 914112275215414
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "skymen_BetterOutline",
+			"name": "BetterOutline"
+		}
+	]
+}

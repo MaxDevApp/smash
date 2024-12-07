@@ -1,0 +1,96 @@
+{
+	"name": "Wheel",
+	"plugin-id": "Sprite",
+	"sid": 821421323414555,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "InitiallyActive",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 440114522162022
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 211572861618752
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 798263054262437
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 220,
+						"height": 220,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 1444916,
+						"collisionPoly": {
+							"points": [
+								0.45454545454545453,
+								0,
+								0.5454545454545454,
+								0,
+								0.8272727272727273,
+								0.11818181818181818,
+								0.8863636363636364,
+								0.17727272727272728,
+								1,
+								0.44545454545454544,
+								1,
+								0.55,
+								0.9318181818181818,
+								0.7636363636363637,
+								0.7636363636363637,
+								0.9318181818181818,
+								0.5454545454545454,
+								1,
+								0.45454545454545453,
+								1,
+								0.23636363636363636,
+								0.9318181818181818,
+								0.10454545454545454,
+								0.8181818181818182,
+								0.06818181818181818,
+								0.7636363636363637,
+								0,
+								0.55,
+								0,
+								0.44545454545454544,
+								0.11363636363636363,
+								0.17727272727272728,
+								0.17272727272727273,
+								0.11818181818181818
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 334963235867184,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
