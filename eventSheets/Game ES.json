@@ -4917,7 +4917,7 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 187502447179878,
+											"sid": 476500096466458,
 											"parameters": {
 												"object-to-create": "TimesUpText",
 												"layer": "\"UI\"",
@@ -4967,6 +4967,14 @@
 													"parameters": {
 														"variable": "isTimerActive",
 														"value": "false"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "LevelText",
+													"sid": 294136097957767,
+													"parameters": {
+														"text": "\"0:00\""
 													}
 												},
 												{
@@ -5634,6 +5642,10 @@
 												"variable": "Level",
 												"value": "1"
 											}
+										},
+										{
+											"type": "script",
+											"script": "if (runtime.globalVars.Level==2)\n{\nym(99157151, 'reachGoal', 'lvl2');\n}\nif (runtime.globalVars.Level==3)\n{\nym(99157151, 'reachGoal', 'lvl3');\n}\nif (runtime.globalVars.Level==4)\n{\nym(99157151, 'reachGoal', 'lvl4');\n}\nif (runtime.globalVars.Level==5)\n{\nym(99157151, 'reachGoal', 'lvl5');\n}\nif (runtime.globalVars.Level==6)\n{\nym(99157151, 'reachGoal', 'lvl6');\n}\nif (runtime.globalVars.Level==7)\n{\nym(99157151, 'reachGoal', 'lvl7');\n}\nif (runtime.globalVars.Level==8)\n{\nym(99157151, 'reachGoal', 'lvl8');\n}\nif (runtime.globalVars.Level==9)\n{\nym(99157151, 'reachGoal', 'lvl9');\n}\nif (runtime.globalVars.Level==10)\n{\nym(99157151, 'reachGoal', 'lvl10');\n}\nif (runtime.globalVars.Level==20)\n{\nym(99157151, 'reachGoal', 'lvl20');\n}\nif (runtime.globalVars.Level==30)\n{\nym(99157151, 'reachGoal', 'lvl30');\n}\nif (runtime.globalVars.Level==40)\n{\nym(99157151, 'reachGoal', 'lvl40');\n}\nif (runtime.globalVars.Level==50)\n{\nym(99157151, 'reachGoal', 'lvl50');\n}\nif (runtime.globalVars.Level==60)\n{\nym(99157151, 'reachGoal', 'lvl60');\n}\nif (runtime.globalVars.Level==70)\n{\nym(99157151, 'reachGoal', 'lvl70');\n}\nif (runtime.globalVars.Level==100)\n{\nym(99157151, 'reachGoal', 'lvl100');\n}\nif (runtime.globalVars.Level==300)\n{\nym(99157151, 'reachGoal', 'lvl300');\n}\n\nwindow.yaParams = { \"lvlup\": runtime.globalVars.Level };\nym(99157151, 'params', window.yaParams||{});\n\nif (window.platforms == 'VK')\n{\n\nvkBridge.send('VKWebAppStorageSet', {\n   key: 'bestscore',\n   value: runtime.globalVars.Level\n  })\n  .then((data) => { \n    if (data.result) {\n      // Значение переменной задано\n\t  console.log(data);\n\t  console.log(\"save \"+runtime.globalVars.Level);\n    }\n  })\n  .catch((error) => {\n    // Ошибка\n    console.log(error);\n  });\n\n}\n\nif (window.platforms == 'YA')\n{\n\nwindow.ysdk.getLeaderboards()\n  .then(lb => {\n    lb.setLeaderboardScore('best', runtime.globalVars.Level);\n  });\n  \n  window.player.setData({\n        lvl: runtime.globalVars.Level,\n    }).then(() => {\n        console.log('data is set');\n    });\t\n\n\n}\n\nif (window.platforms == 'OK')\n{\nwindow.sendScore(runtime.globalVars.Level);\n}"
 										}
 									],
 									"sid": 183964455729848,
@@ -6020,11 +6032,24 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 541320747644828,
+									"sid": 558270126670773,
 									"parameters": {
 										"object-to-create": "BtnNext",
 										"layer": "\"Fader\"",
-										"x": "360",
+										"x": "520",
+										"y": "1000",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 663431301320433,
+									"parameters": {
+										"object-to-create": "btnOurGames",
+										"layer": "\"Fader\"",
+										"x": "200",
 										"y": "1000",
 										"create-hierarchy": false,
 										"template-name": "\"\""
@@ -6399,7 +6424,12 @@
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "window.adsingame();"
+						}
+					],
 					"sid": 719269685958225,
 					"children": [
 						{
@@ -6527,6 +6557,23 @@
 							"id": "tween-one-property",
 							"objectClass": "BtnNext",
 							"sid": 787691033928099,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.2",
+								"ease": "noease",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "btnOurGames",
+							"sid": 384561312106397,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"\"",
@@ -9415,6 +9462,26 @@
 				}
 			],
 			"sid": 678047015235277
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 934536957483496,
+					"parameters": {
+						"object": "btnOurGames"
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "if (window.platforms == 'OK')\n{\nFAPI.UI.showInvite(\"Соединяй новогодние шарики. Сможешь собрать елочку?\", \"arg1=val1\");\n}\nif (window.platforms == 'YA')\n{\nif (window.yandexlangtld=='ru')\n{\nwindow.open(\"https://yandex.\"+window.yandexlangtld+\"/games/developer/1225?clid=10789924&utm_source=distrib&utm_medium=directbiz\", \"_blank\");\n}\nelse\n{\nwindow.open(\"https://yandex.\"+window.yandexlangtld+\"/games/developer/1225?clid=10789924&utm_source=distrib&utm_medium=directbiz\", \"_blank\");\n}\n\nym(99157151,'reachGoal','crosspromo');\n}\nif (window.platforms == 'VK')\n{\nwindow.sendScore(runtime.globalVars.bestscore);\nvkBridge.send(\"VKWebAppShowLeaderBoardBox\", {\n  user_result: runtime.globalVars.bestscore\n  })\n  .then( (data) => {\n    if (data.success) {\nconsole.log(data.success);\n    }\n  })\n  .catch( (error) => {\n    console.log(error); // Ошибка\n  });\n}\nif (window.platforms == 'AN')\n{\n\n\n\n}"
+				}
+			],
+			"sid": 372752923312866
 		}
 	],
 	"sid": 639619142643402

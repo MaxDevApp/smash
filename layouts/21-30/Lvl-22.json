@@ -1238,10 +1238,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 497.5,
-						"y": 840.5,
-						"width": 293,
-						"height": 108,
+						"x": 556,
+						"y": 846,
+						"width": 121.5,
+						"height": 98.5,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [

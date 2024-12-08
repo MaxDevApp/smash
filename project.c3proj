@@ -84,13 +84,6 @@
 			"bundled": false
 		},
 		{
-			"type": "plugin",
-			"id": "advert",
-			"name": "Mobile advert",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
 			"type": "behavior",
 			"id": "Fade",
 			"name": "Fade",
@@ -155,7 +148,6 @@
 			"Keyboard",
 			"Background",
 			"Fader",
-			"MobileAdvert",
 			"LocalStorage",
 			"Browser",
 			"Audio",
@@ -182,7 +174,8 @@
 				"items": [
 					"BtnNext",
 					"WinEmoji",
-					"WinText"
+					"WinText",
+					"btnOurGames"
 				],
 				"subfolders": [],
 				"name": "Win"

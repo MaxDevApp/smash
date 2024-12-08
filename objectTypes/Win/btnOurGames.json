@@ -1,0 +1,73 @@
+{
+	"name": "btnOurGames",
+	"plugin-id": "Sprite",
+	"sid": 702095362026636,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 991746400405944
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 220,
+						"height": 112,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 3666895,
+						"collisionPoly": {
+							"points": [
+								0.11363636363636363,
+								0,
+								0.9454545454545454,
+								0.05357142857142857,
+								0.9727272727272728,
+								0.10714285714285714,
+								1,
+								0.22321428571428573,
+								1,
+								0.7767857142857143,
+								0.9727272727272728,
+								0.8928571428571429,
+								0.8863636363636364,
+								1,
+								0.05454545454545454,
+								0.9464285714285714,
+								0.02727272727272727,
+								0.8928571428571429,
+								0,
+								0.7767857142857143,
+								0,
+								0.22321428571428573,
+								0.02727272727272727,
+								0.10714285714285714
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 835902800361876,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

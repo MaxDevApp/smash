@@ -13,6 +13,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "sdkloaded",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 536156645147005
+		},
+		{
+			"eventType": "variable",
 			"name": "IsAllDataLoaded",
 			"type": "boolean",
 			"initialValue": "false",
@@ -682,7 +692,18 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 384215856980276,
+							"parameters": {
+								"variable": "sdkloaded",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
 					"actions": [
 						{
 							"id": "wait-for-previous-actions",
@@ -737,6 +758,10 @@
 							],
 							"actions": [
 								{
+									"type": "script",
+									"script": "if (window.platforms == 'YA')\n{\nwindow.ysdk.features.LoadingAPI.ready();\n}\nif (window.bestscore>runtime.globalVars.Level)\n{\nruntime.globalVars.Level=window.bestscore;\n}"
+								},
+								{
 									"id": "go-to-layout-by-name",
 									"objectClass": "System",
 									"sid": 353698222943437,
@@ -767,6 +792,10 @@
 							],
 							"actions": [
 								{
+									"type": "script",
+									"script": "if (window.platforms == 'YA')\n{\nwindow.ysdk.features.LoadingAPI.ready();\n}\nif (window.bestscore>runtime.globalVars.Level)\n{\nruntime.globalVars.Level=window.bestscore;\n}"
+								},
+								{
 									"id": "go-to-layout-by-name",
 									"objectClass": "System",
 									"sid": 884982204355926,
@@ -780,6 +809,10 @@
 					]
 				}
 			]
+		},
+		{
+			"eventType": "script",
+			"script": "if (window.platforms == 'YA')\n{\nruntime.globalVars.sdkloaded = window.sdkloaded;\nruntime.globalVars.adsopened = window.adsopened;\nruntime.globalVars.testnumber = window.testnumber;\n}\nif (window.platforms == 'VK')\n{\nruntime.globalVars.sdkloaded = window.sdkloaded;\nruntime.globalVars.adsopened = window.adsopened;\nruntime.globalVars.lang = 0;\n}\nif (window.platforms == 'OK')\n{\nruntime.globalVars.sdkloaded = window.sdkloaded;\nruntime.globalVars.adsloaded = window.adsloaded;\nruntime.globalVars.adsopened = window.adsopened;\nruntime.globalVars.rewardcomplete = window.rewardcomplete;\n\n}"
 		}
 	],
 	"sid": 647586007946385

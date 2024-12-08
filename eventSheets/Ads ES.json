@@ -13,6 +13,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "StatusRewAds",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 792849013032414
+		},
+		{
+			"eventType": "variable",
 			"name": "LevelsCounter",
 			"type": "number",
 			"initialValue": "0",
@@ -30,91 +40,8 @@
 					"sid": 408813955337098
 				}
 			],
-			"actions": [
-				{
-					"type": "comment",
-					"text": "Interstitial Ad."
-				},
-				{
-					"id": "create-interstitial",
-					"objectClass": "MobileAdvert",
-					"sid": 563403805269972,
-					"parameters": {
-						"advert-id": "\"ca-app-pub-YourPubHere/AdNumberHere\"",
-						"show": "false"
-					}
-				},
-				{
-					"type": "comment",
-					"text": "Rewarded Ad."
-				},
-				{
-					"id": "create-rewarded",
-					"objectClass": "MobileAdvert",
-					"sid": 710022092488345,
-					"parameters": {
-						"advert-id": "\"ca-app-pub-YourPubHere/AdNumberHere\"",
-						"show": "false"
-					}
-				},
-				{
-					"type": "comment",
-					"text": "At the start of the level, we increase the value of the \"LevelsCounter\" variable by 1. So we'll be able to show ads for every 5th level."
-				},
-				{
-					"id": "add-to-eventvar",
-					"objectClass": "System",
-					"sid": 350516173514103,
-					"parameters": {
-						"variable": "LevelsCounter",
-						"value": "1"
-					}
-				}
-			],
-			"sid": 315784366134038,
-			"children": [
-				{
-					"eventType": "comment",
-					"text": "Show interstitial Ad."
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 245660907229537,
-							"parameters": {
-								"first-value": "LevelsCounter % 5",
-								"comparison": 0,
-								"second-value": "0"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 176619798148486,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-loaded-interstitial",
-									"objectClass": "MobileAdvert",
-									"sid": 982411845361069
-								}
-							],
-							"actions": [
-								{
-									"id": "show-interstitial",
-									"objectClass": "MobileAdvert",
-									"sid": 521735443353247
-								}
-							],
-							"sid": 482132942737327
-						}
-					]
-				}
-			]
+			"actions": [],
+			"sid": 315784366134038
 		},
 		{
 			"eventType": "comment",
@@ -134,28 +61,13 @@
 			"functionParameters": [],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [],
-			"sid": 630864586815615,
-			"children": [
+			"actions": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-loaded-rewarded",
-							"objectClass": "MobileAdvert",
-							"sid": 188834696997867
-						}
-					],
-					"actions": [
-						{
-							"id": "show-rewarded",
-							"objectClass": "MobileAdvert",
-							"sid": 507708704089619
-						}
-					],
-					"sid": 575493688660133
+					"type": "script",
+					"script": "\nif (window.platforms == 'YA')\n{\nwindow.ysdk.adv.showRewardedVideo({\n    callbacks: {\n        onOpen: () => {\n          console.log('Video ad open.');\n        },\n        onRewarded: () => {\n          console.log('Rewarded!');\n\t\t  runtime.globalVars.StatusRewAds = 2;\n        },\n        onClose: () => {\nif (runtime.globalVars.StatusRewAds == 2)\n{\nruntime.globalVars.StatusRewAds = 1;\nym(99157151, 'reachGoal', 'rewads');\n}\nelse\n{\n\n}\n console.log('Video ad closed.');\n        }, \n        onError: (e) => {\n          console.log('Error while open video ad:', e);\n        }\n    }\n})\n}\nif (window.platforms == 'VK')\n{\nvkBridge.send(\"VKWebAppShowNativeAds\", {ad_format:\"reward\", use_waterfall: true })\n.then(data => \n{\nif (data.result) {\nruntime.globalVars.StatusRewAds = 1;\nym(99157151, 'reachGoal', 'rewads');\n}\nelse\n{\n\n}\n\n})\n.catch(error => \n{\n\n}\n);\n}\nif (window.platforms == 'OK')\n{\n\nFAPI.UI.showLoadedAd(); \n\n}\n\n\n\n"
 				}
-			]
+			],
+			"sid": 630864586815615
 		},
 		{
 			"eventType": "variable",
@@ -171,12 +83,27 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-rewarded-complete",
-					"objectClass": "MobileAdvert",
-					"sid": 211680853976111
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 686102860825653,
+					"parameters": {
+						"variable": "StatusRewAds",
+						"comparison": 0,
+						"value": "1"
+					}
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 320126873667348,
+					"parameters": {
+						"variable": "StatusRewAds",
+						"value": "0"
+					}
+				}
+			],
 			"sid": 338338989173958,
 			"children": [
 				{
@@ -379,59 +306,8 @@
 							"sid": 193749302132954
 						}
 					]
-				},
-				{
-					"eventType": "comment",
-					"text": "Create another ad."
-				},
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "wait-for-previous-actions",
-							"objectClass": "System",
-							"sid": 217784903207874
-						},
-						{
-							"id": "create-rewarded",
-							"objectClass": "MobileAdvert",
-							"sid": 196445055715516,
-							"parameters": {
-								"advert-id": "\"ca-app-pub-YourPubHere/AdNumberHere\"",
-								"show": "false"
-							}
-						}
-					],
-					"sid": 531044688925617
 				}
 			]
-		},
-		{
-			"eventType": "comment",
-			"text": "If the rewarded ad was canceled, we create it again."
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-rewarded-cancelled",
-					"objectClass": "MobileAdvert",
-					"sid": 173985378042143
-				}
-			],
-			"actions": [
-				{
-					"id": "create-rewarded",
-					"objectClass": "MobileAdvert",
-					"sid": 153474854498374,
-					"parameters": {
-						"advert-id": "\"ca-app-pub-YourPubHere/AdNumberHere\"",
-						"show": "false"
-					}
-				}
-			],
-			"sid": 293118530987889
 		}
 	],
 	"sid": 397437890623816
