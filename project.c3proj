@@ -1,7 +1,7 @@
 {
 	"projectFormatVersion": 1,
 	"savedWithRelease": 41600,
-	"name": "Draw To Smash",
+	"name": "Smash",
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": true,
@@ -662,7 +662,7 @@
 	"properties": {
 		"description": "",
 		"version": "1.0.0.0",
-		"author": "Svixel",
+		"author": "maxdevapp",
 		"authorEmail": "",
 		"authorWebsite": "",
 		"appId": "",

@@ -692,18 +692,7 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 384215856980276,
-							"parameters": {
-								"variable": "sdkloaded",
-								"comparison": 0,
-								"value": "1"
-							}
-						}
-					],
+					"conditions": [],
 					"actions": [
 						{
 							"id": "wait-for-previous-actions",
@@ -743,68 +732,8 @@
 							"text": "We go to a level if its value does not exceed the total number of levels."
 						},
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 708230273447613,
-									"parameters": {
-										"variable": "Level",
-										"comparison": 3,
-										"value": "AllLevelsCount"
-									}
-								}
-							],
-							"actions": [
-								{
-									"type": "script",
-									"script": "if (window.platforms == 'YA')\n{\nwindow.ysdk.features.LoadingAPI.ready();\n}\nif (window.bestscore>runtime.globalVars.Level)\n{\nruntime.globalVars.Level=window.bestscore;\n}"
-								},
-								{
-									"id": "go-to-layout-by-name",
-									"objectClass": "System",
-									"sid": 353698222943437,
-									"parameters": {
-										"layout": "\"Lvl-\" & Level"
-									}
-								}
-							],
-							"sid": 826922659968308
-						},
-						{
 							"eventType": "comment",
 							"text": "Otherwise, we go to the random level."
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 599867552055190,
-									"parameters": {
-										"variable": "Level",
-										"comparison": 4,
-										"value": "AllLevelsCount"
-									}
-								}
-							],
-							"actions": [
-								{
-									"type": "script",
-									"script": "if (window.platforms == 'YA')\n{\nwindow.ysdk.features.LoadingAPI.ready();\n}\nif (window.bestscore>runtime.globalVars.Level)\n{\nruntime.globalVars.Level=window.bestscore;\n}"
-								},
-								{
-									"id": "go-to-layout-by-name",
-									"objectClass": "System",
-									"sid": 884982204355926,
-									"parameters": {
-										"layout": "\"Lvl-\" & int(random(2, AllLevelsCount))"
-									}
-								}
-							],
-							"sid": 513874100530781
 						}
 					]
 				}
@@ -812,7 +741,94 @@
 		},
 		{
 			"eventType": "script",
-			"script": "if (window.platforms == 'YA')\n{\nruntime.globalVars.sdkloaded = window.sdkloaded;\nruntime.globalVars.adsopened = window.adsopened;\nruntime.globalVars.testnumber = window.testnumber;\n}\nif (window.platforms == 'VK')\n{\nruntime.globalVars.sdkloaded = window.sdkloaded;\nruntime.globalVars.adsopened = window.adsopened;\nruntime.globalVars.lang = 0;\n}\nif (window.platforms == 'OK')\n{\nruntime.globalVars.sdkloaded = window.sdkloaded;\nruntime.globalVars.adsloaded = window.adsloaded;\nruntime.globalVars.adsopened = window.adsopened;\nruntime.globalVars.rewardcomplete = window.rewardcomplete;\n\n}"
+			"script": "if (window.platforms == 'YA')\n{\nruntime.globalVars.sdkloaded = window.sdkloaded;\n}\nif (window.platforms == 'VK')\n{\nruntime.globalVars.sdkloaded = window.sdkloaded;\n}\nif (window.platforms == 'OK')\n{\nruntime.globalVars.sdkloaded = window.sdkloaded;\n}"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 464387614890926,
+					"parameters": {
+						"variable": "IsAllDataLoaded"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 384215856980276,
+					"parameters": {
+						"variable": "sdkloaded",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 834756429756934,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 243069481157492,
+							"parameters": {
+								"variable": "Level",
+								"comparison": 3,
+								"value": "AllLevelsCount"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "if (window.platforms == 'YA')\n{\nwindow.ysdk.features.LoadingAPI.ready();\n}\nif (window.bestscore>runtime.globalVars.Level)\n{\nruntime.globalVars.Level=window.bestscore;\n}"
+						},
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 225511618489928,
+							"parameters": {
+								"layout": "\"Lvl-\" & Level"
+							}
+						}
+					],
+					"sid": 626400584750082
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 418031240942674,
+							"parameters": {
+								"variable": "Level",
+								"comparison": 4,
+								"value": "AllLevelsCount"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "if (window.platforms == 'YA')\n{\nwindow.ysdk.features.LoadingAPI.ready();\n}\nif (window.bestscore>runtime.globalVars.Level)\n{\nruntime.globalVars.Level=window.bestscore;\n}"
+						},
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 721281373397921,
+							"parameters": {
+								"layout": "\"Lvl-\" & int(random(2, AllLevelsCount))"
+							}
+						}
+					],
+					"sid": 422847682339100
+				}
+			]
 		}
 	],
 	"sid": 647586007946385

@@ -50,6 +50,16 @@
 			"sid": 502725188069405
 		},
 		{
+			"eventType": "variable",
+			"name": "adsopened",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 354264178527719
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -9482,6 +9492,95 @@
 				}
 			],
 			"sid": 372752923312866
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 367605315422605,
+					"parameters": {
+						"variable": "adsopened",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-paused",
+					"objectClass": "Audio",
+					"sid": 355252677604304,
+					"parameters": {
+						"tag": "\"music\"",
+						"state": "pause"
+					}
+				}
+			],
+			"sid": 594626885336781
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 519884952217132,
+					"parameters": {
+						"variable": "adsopened",
+						"comparison": 0,
+						"value": "2"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 689109961532842,
+					"parameters": {
+						"variable": "adsopened",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 834789340011660,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 545231713336820,
+							"parameters": {
+								"variable": "isMusicActive"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Resume music."
+						},
+						{
+							"id": "set-paused",
+							"objectClass": "Audio",
+							"sid": 950911328788970,
+							"parameters": {
+								"tag": "\"music\"",
+								"state": "resume"
+							}
+						}
+					],
+					"sid": 985457563179242
+				}
+			]
+		},
+		{
+			"eventType": "script",
+			"script": "if (window.platforms == 'YA')\n{\nruntime.globalVars.adsopened = window.adsopened;\n}\nif (window.platforms == 'VK')\n{\nruntime.globalVars.adsopened = window.adsopened;\n}\nif (window.platforms == 'OK')\n{\nruntime.globalVars.adsopened = window.adsopened;\nruntime.globalVars.rewardcomplete = window.rewardcomplete;\n\n}"
 		}
 	],
 	"sid": 639619142643402

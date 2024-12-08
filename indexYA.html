@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Eggs</title>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+	<meta name="generator" content="Scirra Construct">
+	<meta name="description" content="a">
+	<link rel="manifest" href="appmanifest.json">
+	<link rel="apple-touch-icon" sizes="128x128" href="icons/icon-128.png">
+	<link rel="apple-touch-icon" sizes="256x256" href="icons/icon-256.png">
+	<link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512.png">
+	<link rel="icon" type="image/png" href="icons/icon-512.png">
+
+	<link rel="stylesheet" href="style.css">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<script src="/sdk.js"></script>
+	<style>
+		* {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		body {
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			/* чтобы фон занимал весь видимый экран */
+		}
+	</style>
+</head>
+
+<body>
+
+	<script>
+		window.platforms = 'YA';
+		window.sdkloaded = 0;
+		window.adsready = 0;
+		window.testnumber = 1;
+		window.gameloadedapi = 0;
+
+		let timer; // Глобальная переменная для хранения объекта таймера
+
+		function startTimer() {
+			// Устанавливаем таймер на 2 минуты (120000 миллисекунд)
+			timer = setTimeout(function () {
+				// Ваш код, который должен быть выполнен через 2 минуты
+				console.log("Код выполнен через 2 минуты!");
+
+				// Вы можете добавить здесь любые дополнительные действия
+				window.adsready = 1;
+				// startTimerDiv();
+				// Запускаем таймер заново (если нужно)
+				startTimer();
+			}, 60000);
+
+		}
+
+		function stopTimer() {
+			// Отменяем текущий таймер, если он запущен
+			clearTimeout(timer);
+			console.log("Таймер остановлен.");
+			window.adsready = 0;
+		}
+		function adsingame() {
+			if (window.adsready == 1) {
+				window.adsready = 0;
+				window.ysdk.adv.showFullscreenAdv({
+					callbacks: {
+						onClose: function (wasShown) {
+							window.adsopened = 2;
+						},
+						onOpen: function (wasShown) {
+							window.adsopened = 1;
+							ym(99157151, 'reachGoal', 'interads');
+						},
+						onError: function (error) {
+							window.adsopened = 2;
+						}
+					}
+				});
+			}
+
+		}
+
+		YaGames.init()
+			.then(ysdk => {
+				window.ysdk = ysdk;
+
+				window.bestscore = 0;
+
+				window.ysdk.getPlayer({ scopes: false }).then(_player => {
+					window.player = _player;
+					const data = ['lvl'];
+
+					window.player.getData(data).then((data) => {
+						console.log(data.lvl);
+						if (data.lvl > 0) {
+							window.bestscore = data.lvl;
+						}
+						else {
+							window.bestscore = 0;
+						}
+						window.sdkloaded = 1;
+					}).catch((error) => {
+						window.bestscore = 0;
+						window.sdkloaded = 1;
+					});
+				}).catch(err => {
+					window.sdkloaded = 1;
+				});
+
+
+				timersdk = setTimeout(function () {
+					window.sdkloaded = 1;
+					console.log('timer start game');
+					clearTimeout(timersdk);
+				}, 5000);
+
+				window.ysdk.getFlags().then(flags => {
+					console.log(flags);
+					if (flags.testnumber === '1') {
+						window.testnumber = 1;
+					}
+					if (flags.testnumber === '2') {
+						window.testnumber = 2;
+					}
+					if (flags.testnumber === '3') {
+						window.testnumber = 3;
+					}
+				});
+
+				startTimer();
+
+
+				if (window.ysdk.environment.i18n.lang == 'ru') {
+					window.yandexlang = 0;
+				}
+				else if (window.ysdk.environment.i18n.lang == 'en') {
+					window.yandexlang = 1;
+				}
+				else {
+					window.yandexlang = 1;
+				}
+
+				window.yandexlangtld = window.ysdk.environment.i18n.tld;
+
+
+				window.ysdk.adv.showFullscreenAdv({
+					callbacks: {
+						onClose: function (wasShown) {
+							window.adsopened = 2;
+						},
+						onOpen: function (wasShown) {
+							window.adsopened = 1;
+							ym(99157151, 'reachGoal', 'interads');
+						},
+						onError: function (error) {
+							window.adsopened = 2;
+						}
+					}
+				});
+
+			});
+
+
+
+
+
+		if (location.protocol.substr(0, 4) === "file") {
+			alert("Web exports won't work until you upload them. (When running on the file: protocol, browsers block many features from working for security reasons.)");
+		}
+	</script>
+	<script src="box2d.wasm.js"></script>
+	<noscript>
+		<div id="notSupportedWrap">
+			<h2 id="notSupportedTitle">This content requires JavaScript</h2>
+			<p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
+		</div>
+	</noscript>
+	<script src="scripts/modernjscheck.js"></script>
+	<script src="scripts/supportcheck.js"></script>
+	<script src="scripts/main.js" type="module"></script>
+	<!-- Yandex.Metrika counter -->
+	<script
+		type="text/javascript"> (function (m, e, t, r, i, k, a) { m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) }; m[i].l = 1 * new Date(); for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } } k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a) })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(99157151, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true, trackHash: true }); </script>
+	<noscript>
+		<div><img src="https://mc.yandex.ru/watch/99157151" style="position:absolute; left:-9999px;" alt="" /></div>
+	</noscript> <!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+
+</html>
